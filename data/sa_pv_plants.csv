@@ -1,0 +1,50 @@
+name;province;latitude;longitude;capacity_mw;commercial_operation;coord_source;note
+Kalkbult;Northern Cape;-30,1595;24,1306;72,4;2013-09;Wikipedia list of power stations in South Africa;72.4 MW per IPP database (Wikipedia 75 MW)
+SlimSun Swartland;Western Cape;-33,35;18,5295;5;2013;Wikipedia list of power stations in South Africa;
+RustMo1;North West;-25,7372;27,4196;6,93;2014;Wikipedia list of power stations in South Africa;
+Konkoonsies;Northern Cape;-28,8871;19,5538;9,65;2014-03;Wikipedia list of power stations in South Africa;
+Aries;Northern Cape;-29,4945;20,783;9,65;2014-03;Wikipedia list of power stations in South Africa;
+Greefspan;Northern Cape;-29,3859;23,3149;10;2014-04;Wikipedia list of power stations in South Africa;
+Herbert;Northern Cape;-29,0026;23,8021;19,9;2014-04;Wikipedia list of power stations in South Africa;
+Mulilo Prieska (small);Northern Cape;-29,9657;22,3148;19,93;2014-10;Wikipedia list of power stations in South Africa;
+Soutpan;Limpopo;-22,9917;29,2517;28;2014-07;Wikipedia list of power stations in South Africa;
+Witkop;Limpopo;-24,0417;29,3617;29,7;2014-09;Wikipedia list of power stations in South Africa;
+Touwsrivier CPV;Western Cape;-33,4144;19,9169;36;2014-12;Wikipedia list of power stations in South Africa;
+Solar Capital De Aar 1;Northern Cape;-30,5792;24,0661;75;2014-08;Wikipedia list of power stations in South Africa;
+Solar Capital De Aar 3;Northern Cape;-30,5956;24,103;75;2015-02;WRI GPPD;Wikipedia repeats De Aar 1 coordinates
+Mulilo De Aar (small);Northern Cape;-30,6286;24,0068;9,7;2014-08;Wikipedia list of power stations in South Africa;
+Mainstream Droogfontein;Northern Cape;-28,616;24,7551;45,4;2014-04;Wikipedia list of power stations in South Africa;
+Mainstream De Aar;Northern Cape;-30,619;24,0339;45,6;2014;Wikipedia list of power stations in South Africa;
+Letsatsi;Free State;-28,9088;25,9254;64;2014-05;Wikipedia list of power stations in South Africa;
+Lesedi;Northern Cape;-28,3177;23,3573;64;2014-05;Wikipedia list of power stations in South Africa;
+Kathu PV 1;Northern Cape;-27,6015;22,9225;75;2014-08;Wikipedia list of power stations in South Africa;
+Sishen;Northern Cape;-27,5866;22,9359;74;2014-12;Wikipedia list of power stations in South Africa;
+Aurora-Rietvlei;Western Cape;-32,6413;18,4973;9;2014;Wikipedia list of power stations in South Africa;
+Vredendal;Western Cape;-31,6354;18,5051;8,8;2014-07;Wikipedia list of power stations in South Africa;
+Linde;Northern Cape;-31,0028;24,6588;36,8;2014-06;Wikipedia list of power stations in South Africa;
+Dreunberg;Eastern Cape;-30,8276;26,2106;69,6;2014-12;"WRI GPPD capacity 75; Wikipedia 32.3";"capacity sources disagree; 69.6 MW is the contracted figure (inferred)"
+Jasper;Northern Cape;-28,2981;23,3656;75;2014-11;Wikipedia list of power stations in South Africa;
+Boshoff;Free State;-28,465;25,1933;57;2014-10;Wikipedia list of power stations in South Africa;
+Upington Airport;Northern Cape;-28,4;21,268;8,9;2014-07;Wikipedia list of power stations in South Africa;
+Adams;Northern Cape;-27,3695;23,0126;75;2016-08;Wikipedia list of power stations in South Africa;
+Tom Burke;Limpopo;-23,0735;27,9893;60;2016-03;Wikipedia list of power stations in South Africa;
+Mulilo Sonnedix Prieska;Northern Cape;-30,0244;22,3622;75;2016-07;Wikipedia list of power stations in South Africa;
+Paleisheuwel;Western Cape;-32,4231;18,7356;75;2016-04;Wikipedia list of power stations in South Africa;
+Pulida;Free State;-29,0444;24,925;75;2016-08;Wikipedia list of power stations in South Africa;
+Mulilo Prieska PV;Northern Cape;-30,0342;22,3197;75;2015-11;Wikipedia list of power stations in South Africa;
+Sirius 1;Northern Cape;-28,5458;21,1044;75;2020;Wikipedia list of power stations in South Africa;"Wikipedia lists 86 MWp; 75 MW contracted"
+Droogfontein 2;Northern Cape;-28,5712;24,6979;75;2020-09;Wikipedia list of power stations in South Africa;also listed as Matla A Bokone Solar
+Dyasons Klip 1;Northern Cape;-28,5723;21,0765;75;2020;Wikipedia list of power stations in South Africa;"Wikipedia lists 86 MWp; 75 MW contracted"
+Dyasons Klip 2;Northern Cape;-28,5661;21,0629;75;2020;Wikipedia list of power stations in South Africa;"Wikipedia status out of date; operating since 2020 (inferred)"
+Konkoonsies II;Northern Cape;-28,8918;19,5622;75;2020-09;Wikipedia list of power stations in South Africa;
+Aggeneys;Northern Cape;-29,2358;18,8977;40;2020-07;Wikipedia list of power stations in South Africa;
+Greefspan II;Northern Cape;-29,3856;23,315;55;2021-09;Wikipedia list of power stations in South Africa;"Wikipedia lists both 63.2 and 55 MW; also listed as Boikanyo Solar"
+De Wildt;North West;-25,641;27,9372;50;2021-01;Wikipedia list of power stations in South Africa;
+Zeerust;North West;-25,5786;26,081;75;2021-01;Wikipedia list of power stations in South Africa;
+Bokamoso;North West;-27,1567;26,4003;68;2020;Wikipedia list of power stations in South Africa;Wikipedia status out of date (inferred operating)
+Waterloo;North West;-27,0207;24,7755;75;2021;Wikipedia list of power stations in South Africa;"reported nearing completion late 2020; operating before Apr 2022 (inferred from Eskom PV total; not confirmed)"
+Solar Capital Orange;Northern Cape;-30,95;19,45;75;2023-04;Approximate, from nearest town (Loeriesfontein);"in IPP database list; commercial operation inferred from Eskom +74 MW step on 2023-04-01 (not confirmed)"
+Grootfontein (3 x 75 MW);Western Cape;-33,3;19,6;225;2025-12;Approximate, from news reports;"about 150 km north-east of Cape Town; matches Eskom +225 MW on 2025-12-06"
+Grootspruit;Free State;-27,8;26,8;75;2026-01;Approximate, province only;"exact site not found; placed in the northern Free State (guess)"
+Graspan;Northern Cape;-29,3;24,45;75;2026-01;Approximate, from place name;Graspan locality near Belmont
+Doornhoek;North West;-26,895;26,6917;120;2026-05;Wikipedia list of power stations in South Africa;matches Eskom +120 MW on 2026-05-09

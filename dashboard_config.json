@@ -1,0 +1,12 @@
+{
+  "demand_column": "RSA Contracted Demand",
+  "facility_files": {
+    "Wind": "data/sa_wind_farms.csv",
+    "Solar PV": "data/sa_pv_plants.csv"
+  },
+  "model_dir": "models/LightGBM_SimPower_v1_2026-10-22",
+  "pv_model_dir": "models/XGBoost_RawWeather_v1_2026-10-18",
+  "model_timezone": "UTC",
+  "display_timezone": "Africa/Johannesburg",
+  "scale_120m_to_100m": false
+}

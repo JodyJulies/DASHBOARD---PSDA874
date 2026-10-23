@@ -1,0 +1,50 @@
+name,capacity_mw,online_from,aligned_online,province,latitude,longitude,has_weather
+Kalkbult,72.4,2013-09-01,2013-09-01,Northern Cape,-30.1595,24.1306,True
+SlimSun Swartland,5.0,2013-01-01,2013-01-01,Western Cape,-33.35,18.5295,True
+RustMo1,6.93,2014-01-01,2014-01-01,North West,-25.7372,27.4196,True
+Konkoonsies,9.65,2014-03-01,2014-03-01,Northern Cape,-28.8871,19.5538,True
+Aries,9.65,2014-03-01,2014-03-01,Northern Cape,-29.4945,20.783,True
+Greefspan,10.0,2014-04-01,2014-04-01,Northern Cape,-29.3859,23.3149,True
+Herbert,19.9,2014-04-01,2014-04-01,Northern Cape,-29.0026,23.8021,True
+Mulilo Prieska (small),19.93,2014-10-01,2014-10-01,Northern Cape,-29.9657,22.3148,True
+Soutpan,28.0,2014-07-01,2014-07-01,Limpopo,-22.9917,29.2517,True
+Witkop,29.7,2014-09-01,2014-09-01,Limpopo,-24.0417,29.3617,True
+Touwsrivier CPV,36.0,2014-12-01,2014-12-01,Western Cape,-33.4144,19.9169,True
+Solar Capital De Aar 1,75.0,2014-08-01,2014-08-01,Northern Cape,-30.5792,24.0661,True
+Solar Capital De Aar 3,75.0,2015-02-01,2015-02-01,Northern Cape,-30.5956,24.103,True
+Mulilo De Aar (small),9.7,2014-08-01,2014-08-01,Northern Cape,-30.6286,24.0068,True
+Mainstream Droogfontein,45.4,2014-04-01,2014-04-01,Northern Cape,-28.616,24.7551,True
+Mainstream De Aar,45.6,2014-01-01,2014-01-01,Northern Cape,-30.619,24.0339,True
+Letsatsi,64.0,2014-05-01,2014-05-01,Free State,-28.9088,25.9254,True
+Lesedi,64.0,2014-05-01,2014-05-01,Northern Cape,-28.3177,23.3573,True
+Kathu PV 1,75.0,2014-08-01,2014-08-01,Northern Cape,-27.6015,22.9225,True
+Sishen,74.0,2014-12-01,2014-12-01,Northern Cape,-27.5866,22.9359,True
+Aurora-Rietvlei,9.0,2014-01-01,2014-01-01,Western Cape,-32.6413,18.4973,True
+Vredendal,8.8,2014-07-01,2014-07-01,Western Cape,-31.6354,18.5051,True
+Linde,36.8,2014-06-01,2014-06-01,Northern Cape,-31.0028,24.6588,True
+Dreunberg,69.6,2014-12-01,2014-12-01,Eastern Cape,-30.8276,26.2106,True
+Jasper,75.0,2014-11-01,2014-11-01,Northern Cape,-28.2981,23.3656,True
+Boshoff,57.0,2014-10-01,2014-10-01,Free State,-28.465,25.1933,True
+Upington Airport,8.9,2014-07-01,2014-07-01,Northern Cape,-28.4,21.268,True
+Adams,75.0,2016-08-01,2016-08-01,Northern Cape,-27.3695,23.0126,True
+Tom Burke,60.0,2016-03-01,2016-03-01,Limpopo,-23.0735,27.9893,True
+Mulilo Sonnedix Prieska,75.0,2016-07-01,2016-07-01,Northern Cape,-30.0244,22.3622,True
+Paleisheuwel,75.0,2016-04-01,2016-04-01,Western Cape,-32.4231,18.7356,True
+Pulida,75.0,2016-08-01,2016-08-01,Free State,-29.0444,24.925,True
+Mulilo Prieska PV,75.0,2015-11-01,2015-11-01,Northern Cape,-30.0342,22.3197,True
+Sirius 1,75.0,2020-01-01,2020-01-01,Northern Cape,-28.5458,21.1044,True
+Droogfontein 2,75.0,2020-09-01,2020-09-01,Northern Cape,-28.5712,24.6979,True
+Dyasons Klip 1,75.0,2020-01-01,2020-01-01,Northern Cape,-28.5723,21.0765,True
+Dyasons Klip 2,75.0,2020-01-01,2020-01-01,Northern Cape,-28.5661,21.0629,True
+Konkoonsies II,75.0,2020-09-01,2020-09-01,Northern Cape,-28.8918,19.5622,True
+Aggeneys,40.0,2020-07-01,2020-07-01,Northern Cape,-29.2358,18.8977,True
+Greefspan II,55.0,2021-09-01,2021-09-01,Northern Cape,-29.3856,23.315,True
+De Wildt,50.0,2021-01-01,2021-01-01,North West,-25.641,27.9372,True
+Zeerust,75.0,2021-01-01,2021-01-01,North West,-25.5786,26.081,True
+Bokamoso,68.0,2020-01-01,2020-01-01,North West,-27.1567,26.4003,True
+Waterloo,75.0,2021-01-01,2021-01-01,North West,-27.0207,24.7755,True
+Solar Capital Orange,75.0,2023-04-01,2023-04-01,Northern Cape,-30.95,19.45,True
+Grootfontein (3 x 75 MW),225.0,2025-12-01,2025-12-06,Western Cape,-33.3,19.6,True
+Grootspruit,75.0,2026-01-01,2026-01-23,Free State,-27.8,26.8,True
+Graspan,75.0,2026-01-01,2026-01-16,Northern Cape,-29.3,24.45,True
+Doornhoek,120.0,2026-05-01,2026-05-09,North West,-26.895,26.6917,True
