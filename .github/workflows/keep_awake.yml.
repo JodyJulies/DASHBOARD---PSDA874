@@ -1,0 +1,42 @@
+name: Keep Streamlit app awake
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours (UTC)
+  workflow_dispatch:         # lets you run it manually
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Visit app and wake it if asleep
+        env:
+          APP_URL: https://dashboard---psda874-fhmygy7v2jphqnpx7f4dqp.streamlit.app/
+        run: |
+          python - <<'EOF'
+          import os
+          from playwright.sync_api import sync_playwright
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page()
+              page.goto(os.environ["APP_URL"], wait_until="networkidle", timeout=120000)
+              button = page.get_by_role("button", name="Yes, get this app back up!")
+              if button.count() > 0:
+                  button.click()
+                  page.wait_for_timeout(60000)  # give it time to boot
+                  print("App was asleep: wake-up triggered.")
+              else:
+                  print("App is awake.")
+              browser.close()
+          EOF
