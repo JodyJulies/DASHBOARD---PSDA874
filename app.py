@@ -19,7 +19,7 @@ def here(path):
     """Config paths are relative to this file, so the folder runs anywhere (Colab or Streamlit Cloud)."""
     return path if not path or os.path.isabs(path) else os.path.join(HERE, path)
 
-st.set_page_config(page_title='SA Renewables Dashboard', layout='wide')
+st.set_page_config(page_title='Wind and Solar Dashboard', layout='wide')
 COLOURS = {'Wind': '#1f77b4', 'Solar PV': '#ff9f1c'}
 SHOW_TZ = CFG.get('display_timezone', 'Africa/Johannesburg')
 SHEAR_120_TO_100 = (100 / 120) ** 0.14   # standard wind shear, about -2.5 %
@@ -28,12 +28,7 @@ SHEAR_120_TO_100 = (100 / 120) ** 0.14   # standard wind shear, about -2.5 %
 FORECAST_SOURCES = {
     'Ensemble: ECMWF (51 members, 15 days)': ('ensemble', 'ecmwf_ifs025', 15),
     'Deterministic (single forecast, 16 days)': ('deterministic', None, 16),
-    }
-#removed weather forecasts
-#'Ensemble: GFS (31 members, 16 days)': ('ensemble', 'gfs025', 16),
-#'Ensemble: ICON (40 members, 7 days)': ('ensemble', 'icon_seamless', 8),
-#
-
+}
 # PV weather: Open-Meteo variable -> short name used by the PV model
 PV_OM_VARS = {'shortwave_radiation': 'ghi', 'direct_normal_irradiance': 'dni', 'diffuse_radiation': 'dhi',
               'temperature_2m': 'temp', 'cloud_cover': 'cloud'}
@@ -243,10 +238,10 @@ def page_performance(tech, title, colour, heat_scale):
 
 
 # =============================================================================================
-# Wind 2-week forecast (ensemble or deterministic)
+# Wind forecast (ECMWF ensemble or deterministic)
 # =============================================================================================
 def page_wind_forecast():
-    st.subheader('Wind production forecast')
+    st.subheader('Wind generation forecast')
     model_tz = CFG.get('model_timezone', 'UTC')
     fw = load_wind_forecaster()
     _, model_cfg, sites = fw.load()
@@ -289,9 +284,9 @@ def page_wind_forecast():
 
     now = pd.Timestamp.now(tz=SHOW_TZ).tz_localize(None).floor('h')
     ens = pd.DataFrame(runs).sort_index()
-    ens = ens[(ens.index >= now) & (ens.index < now + pd.Timedelta(days=14))].dropna(how='all')
+    ens = ens[ens.index >= now].dropna(how='all')
     if ens.empty:
-        st.warning('The weather forecast returned no hours for the next 14 days.')
+        st.warning('The weather forecast returned no future hours.')
         st.stop()
     n_members = ens.shape[1]
     q = ens.quantile([0.1, 0.25, 0.5, 0.75, 0.9], axis=1).T
@@ -341,14 +336,14 @@ def page_wind_forecast():
     with st.expander(f'Forecast wind speed per site ({height} m, m/s, mean of members)'):
         mean_speed = sum(members.values()) / len(members)
         mean_speed.index = to_tz(mean_speed.index, 'UTC', SHOW_TZ)
-        mean_speed = mean_speed[(mean_speed.index >= now) & (mean_speed.index < now + pd.Timedelta(days=14))]
+        mean_speed = mean_speed[mean_speed.index >= now]
         fig = px.imshow(mean_speed.T, aspect='auto', color_continuous_scale='Viridis',
                         labels=dict(x='', y='', color='m/s'), height=max(400, 14 * mean_speed.shape[1]))
         st.plotly_chart(fig, use_container_width=True)
 
     download = q.join(capacity.rename('capacity_online_mw')).round(1)
     st.download_button('Download hourly forecast with percentiles (CSV)', download.to_csv(),
-                       'wind_forecast_14_days.csv', 'text/csv')
+                       'wind_forecast.csv', 'text/csv')
     st.caption(f"Weather: Open-Meteo, {source}, wind at {height} m{' scaled to 100 m' if scale != 1.0 else ''}. "
                f"Each member is run through the model ({model_cfg['model']}, trained to "
                f"{model_cfg['trained_on']['end'][:10]}); P10/P50/P90 are taken across members. "
@@ -357,10 +352,10 @@ def page_wind_forecast():
 
 
 # =============================================================================================
-# PV 2-week forecast (deterministic weather forecast)
+# PV forecast (deterministic weather forecast)
 # =============================================================================================
 def page_pv_forecast():
-    st.subheader('Solar PV production forecast')
+    st.subheader('Solar PV generation forecast')
     if not CFG.get('pv_model_dir') or not os.path.exists(os.path.join(here(CFG['pv_model_dir']), 'forecast_pv.py')):
         st.info('No saved PV forecast model found. Run the PV model-saving cell, then re-run the dashboard setup cell.')
         return
@@ -398,9 +393,9 @@ def page_pv_forecast():
         st.stop()
 
     now = pd.Timestamp.now(tz=SHOW_TZ).tz_localize(None).floor('h')
-    out = out[(out.index >= now) & (out.index < now + pd.Timedelta(days=14))]
+    out = out[out.index >= now]
     if out.empty:
-        st.warning('The weather forecast returned no hours for the next 14 days.')
+        st.warning('The weather forecast returned no future hours.')
         st.stop()
 
     has_model = out['forecast_mw'].notna()
@@ -417,7 +412,7 @@ def page_pv_forecast():
         st.stop()
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric('Expected energy (14 days)', f"{main.sum() / 1000:,.0f} GWh")
+    c1.metric('Expected energy', f"{main.sum() / 1000:,.0f} GWh")
     c2.metric('Average daylight output', f"{main[main > 1].mean():,.0f} MW")
     c3.metric('Peak', f"{main.max():,.0f} MW", f"{main.idxmax():%a %d %b %H:%M}", delta_color='off')
     c4.metric('Capacity of modelled plants', f"{out['capacity_online_mw'].iloc[-1]:,.0f} MW")
@@ -444,14 +439,14 @@ def page_pv_forecast():
 
     with st.expander('Forecast irradiance per plant (GHI, W/m²)'):
         ghi = weather[[c for c in weather.columns if c.endswith('_ghi')]]
-        ghi = ghi[(ghi.index >= now) & (ghi.index < now + pd.Timedelta(days=14))]
+        ghi = ghi[ghi.index >= now]
         ghi.columns = [c.removesuffix('_ghi') for c in ghi.columns]
         fig = px.imshow(ghi.T, aspect='auto', color_continuous_scale='YlOrRd',
                         labels=dict(x='', y='', color='W/m²'), height=max(400, 14 * ghi.shape[1]))
         st.plotly_chart(fig, use_container_width=True)
 
     download = pd.DataFrame({'forecast_mw': main}).join(out[['physics_mw', 'capacity_online_mw']]).round(1)
-    st.download_button('Download hourly PV forecast (CSV)', download.to_csv(), 'pv_forecast_14_days.csv', 'text/csv')
+    st.download_button('Download hourly PV forecast (CSV)', download.to_csv(), 'pv_forecast.csv', 'text/csv')
     st.caption(f"Weather: Open-Meteo deterministic forecast in SAST; radiation shifted 1 h to the model's hour-beginning "
                f"convention. Single weather forecast (no ensemble), so no uncertainty band is shown. "
                f"Generated {pd.Timestamp.now(tz=SHOW_TZ):%d %b %Y %H:%M}.")
@@ -553,7 +548,7 @@ def page_demand():
 # Sidebar: page toggle
 # =============================================================================================
 PAGES = ['Facilities map', 'Demand and wind/PV share', 'Performance', 'Forecast']
-st.sidebar.title('SA Renewables Dashboard')
+st.sidebar.title('Wind and Solar Dashboard')
 view = st.sidebar.radio('View', PAGES)
 
 
@@ -628,7 +623,7 @@ elif view == 'Performance':
     else:
         page_performance('pv', 'Solar PV (Eskom raw hourly data)', COLOURS['Solar PV'], 'YlOrBr')
 else:
-    st.title('Forecast: next 14 days')
+    st.title('Forecast')
     if tech_toggle(list(COLOURS), 'forecast') == 'Wind':
         page_wind_forecast()
     else:
