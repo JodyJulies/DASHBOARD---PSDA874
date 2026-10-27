@@ -27,10 +27,13 @@ SHEAR_120_TO_100 = (100 / 120) ** 0.14   # standard wind shear, about -2.5 %
 # Wind weather forecast options: (kind, Open-Meteo model, forecast days)
 FORECAST_SOURCES = {
     'Ensemble: ECMWF (51 members, 15 days)': ('ensemble', 'ecmwf_ifs025', 15),
-    'Ensemble: GFS (31 members, 16 days)': ('ensemble', 'gfs025', 16),
-    'Ensemble: ICON (40 members, 7 days)': ('ensemble', 'icon_seamless', 8),
     'Deterministic (single forecast, 16 days)': ('deterministic', None, 16),
-}
+    }
+#removed weather forecasts
+#'Ensemble: GFS (31 members, 16 days)': ('ensemble', 'gfs025', 16),
+#'Ensemble: ICON (40 members, 7 days)': ('ensemble', 'icon_seamless', 8),
+#
+
 # PV weather: Open-Meteo variable -> short name used by the PV model
 PV_OM_VARS = {'shortwave_radiation': 'ghi', 'direct_normal_irradiance': 'dni', 'diffuse_radiation': 'dhi',
               'temperature_2m': 'temp', 'cloud_cover': 'cloud'}
